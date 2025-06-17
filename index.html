@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="vt-refine">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VT-Refine</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title"><span style="color: #46b1f0;">V</span><span
+                style="color: #9b59b6;">T</span>-Refine: Learning Bimanual Assembly with </br>
+              <span style="color: #46b1f0;">Visuo</span>-<span style="color: #9b59b6;">Tactile</span> Feedback via
+              Simulation Fine-Tuning
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Anonymous Author(s)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="overall teaser"></section>
+    <div class="columns is-centered has-text-centered">
+      <div class="container">
+        <div class="column is-full-width">
+          <h2 class="title is-3">
+            Our Visuo-Tactile Diffusion Policy can be Fine-Tuned in Simulation Using RL! </h2>
+          <h2 class="title is-5" style="color: rgb(189, 189, 189);">Left: Fine-Tuned Policy Rollout in Real-World &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            Right: Fine-Tuned Policy Rollout in Simulation</h2>
+          <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+            <source src="videos/teaser.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Humans excel at bimanual assembly tasks by adapting to rich tactile feedback—a capability that remains
+              difficult to replicate in robots through behavioral cloning alone, due to the suboptimality and limited
+              diversity of human demonstrations. In this work, we present VT-Refine, a visuo-tactile policy learning
+              framework that combines real-world demonstrations, high-fidelity tactile simulation, and reinforcement
+              learning to tackle precise, contact-rich bimanual assembly. We begin by training a diffusion policy on a
+              small set of demonstrations using synchronized visual and tactile inputs. This policy is then transferred
+              to a simulated digital twin equipped with simulated tactile sensors and further refined via large-scale
+              reinforcement learning to enhance robustness and generalization. To enable accurate sim-to-real transfer,
+              we leverage high-resolution piezoresistive tactile sensors that provide normal force signals and can be
+              realistically modeled in parallel using GPU-accelerated simulation. Experimental results show that
+              VT-Refine improves assembly performance in both simulation and the real world by increasing data diversity
+              and enabling more effective policy fine-tuning.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="Physcial">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Tactile Sensor Hardware and Simulation</h2>
+          <h2 class="title is-5" style="color: rgb(189, 189, 189);">Left: Tactile Signals in Real World &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            Right: Tactile Signals in Simulation</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop loop style="border-radius:10px; ">
+                <source src="videos/sensor test 1.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/sensor test 2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</br>
+</br>
+
+  <section class="videos">
+    <div class="container">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Capability Experiments</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Nut-and-Bot Assembly</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-5">Trial 1</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00581 1.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2 class="title is-5">Trial 2</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00581 2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4"> Bayonet Joint Assembly</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-5">Trial 1</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00446 1.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2 class="title is-5">Trial 2</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00446 2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Peg‑in‑Hole Insertion</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-5">Trial 1 (Table-Top Bimanual Setup)</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00186 1.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2 class="title is-5">Trial 2 (Semi-Humanoid Setup)</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00186 2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+<!-- Shaft and Shaft‑collar Assembly Section -->
+<section>
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <button class="button is-primary" onclick="toggleShaftVideos()" id="toggleButtonShaft">
+          Shaft and Shaft‑collar Assembly
+        </button>
+      </div>
+    </div>
+
+    <div id="moreVideosShaft" style="display: none;">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Shaft and Shaft‑collar Assembly</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-5">Trial 1</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video width="99%" muted autoplay controls loop style="border-radius:10px;">
+                <source src="videos/00422 1.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2 class="title is-5">Trial 2</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video width="99%" muted autoplay controls loop style="border-radius:10px;">
+                <source src="videos/00422 2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mechanical Connector Assembly Section -->
+<section>
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <button class="button is-primary" onclick="toggleConnectorVideos()" id="toggleButtonConnector">
+          Mechanical Connector Assembly
+        </button>
+      </div>
+    </div>
+
+    <div id="moreVideosConnector" style="display: none;">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Mechanical Connector Assembly</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-5">Trial 1 (Table-Top Bimanual Setup)</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video width="99%" muted autoplay controls loop style="border-radius:10px;">
+                <source src="videos/00081 1.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2 class="title is-5">Trial 2 (Semi-Humanoid Setup)</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video width="99%" muted autoplay controls loop style="border-radius:10px;">
+                <source src="videos/00081 2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Toggle Functions -->
+<script>
+  function toggleShaftVideos() {
+    const moreVideos = document.getElementById("moreVideosShaft");
+    const toggleButton = document.getElementById("toggleButtonShaft");
+
+    if (moreVideos.style.display === "none" || moreVideos.style.display === "") {
+      moreVideos.style.display = "block";
+      toggleButton.innerText = "Hide Shaft and Shaft‑collar Assembly";
+    } else {
+      moreVideos.style.display = "none";
+      toggleButton.innerText = "Shaft and Shaft‑collar Assembly";
+    }
+  }
+
+  function toggleConnectorVideos() {
+    const moreVideos = document.getElementById("moreVideosConnector");
+    const toggleButton = document.getElementById("toggleButtonConnector");
+
+    if (moreVideos.style.display === "none" || moreVideos.style.display === "") {
+      moreVideos.style.display = "block";
+      toggleButton.innerText = "Hide Mechanical Connector Assembly";
+    } else {
+      moreVideos.style.display = "none";
+      toggleButton.innerText = "Mechanical Connector Assembly";
+    }
+  }
+</script>
+
+  </br>
+  </br>
+
+  <section>
+    <div class="columns is-centered has-text-centered">
+      <div class="container is-half">
+        <h2 class="title is-2"> Method</h2>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Visuo-Tactile Points Representation
+            </h2> <span
+            style="color: #9b59b6"> <b>Stage 1</b></span>: We collect real-world human demonstrations
+            with visual and tactile modalities and pre-train a diffusion policy. <br><span style="color: #3D85C6"><b>Stage 2</b></span>: We simulate the same sensory
+            modalities in simulation and fine-tune the pre-trained diffusion policy using policy-gradient-based RL.
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered">
+            <picture class="image">
+              <img alt="" src="images/Method.png" width="100%" style="border-radius:10px; ">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</br>
+</br>
+
+  <section>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2">Policy Robustness: Comparison with Baselines</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Comparison of Before and After Fine-Tuning</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-5"> Fine-Tune w/ Tactile (Ours): Successful In-hand Adjustment</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/ours ft compare.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2 class="title is-5"> Pre-Train w/ Tactile: Failed to Re-Align the Socket due to Occlusion</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/pretrain tactile 00581.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-5"> Fine-Tune w/ Tactile (Ours): Successful In-hand Adjustment</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00446 ours compare ft.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2 class="title is-5"> Pre-Train w/ Tactile: Failed to Recover Unexpected Contact Dynamics</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00446 pretrain compare ft.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Comparison of w/ and w/o Tactile</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-5"> Fine-Tune w/ Tactile (Ours): Accurate Insertion </h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/ours touch compare.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <h2 class="title is-5"> Fine-Tune w/o Tactile: Incorrect Insertion Direction</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/ft vision 00581.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-5"> Fine-Tune w/ Tactile (Ours): Accurate Insertion </h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00446 ours compare touch.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <h2 class="title is-5"> Fine-Tune w/o Tactile: Failed Re-Adjustment Attempt</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/00446 vision ft.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+  <section>
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <button class="button is-primary" onclick="toggleCompareVideos()" id="toggleButtonCompare">
+            More Comparison Videos
+          </button>
+        </div>
+      </div>
+
+      <div id="moreVideosCompare" style="display: none;">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-4">More Comparison Videos</h2>
+          </div>
+        </div>
+
+        <!-- <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-5">Trial 1 (Table-Top Bimanual Robot Setup)</h2>
+            <div class="columns is-centered">
+              <div class="column content">
+                <video width="99%" muted autoplay controls loop style="border-radius:10px;">
+                  <source src="videos/00081 1.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <h2 class="title is-5">Trial 2 (Semi-Humanoid Robot Setup)</h2>
+            <div class="columns is-centered">
+              <div class="column content">
+                <video width="99%" muted autoplay controls loop style="border-radius:10px;">
+                  <source src="videos/00081 2.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    function toggleCompareVideos() {
+      const moreVideos = document.getElementById("moreVideosCompare");
+      const toggleButton = document.getElementById("toggleButtonCompare");
+  
+      if (moreVideos.style.display === "none" || moreVideos.style.display === "") {
+        moreVideos.style.display = "block";
+        toggleButton.innerText = "Hide Comparison Videos";
+      } else {
+        moreVideos.style.display = "none";
+        toggleButton.innerText = "More Comparison Videos";
+      }
+    }
+  </script>
+
+</br>
+</br>
+
+  <section class="Rollout">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Policy Rollout in Real</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop loop style="border-radius:10px; ">
+                <source src="videos/00446 15s.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</br>
+</br>
+
+  <section class="Rollout">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Large-Scale Simulation Fine-Tuning</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-4">Table-Top Bimanual Setup</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop loop style="border-radius:10px; ">
+                <source src="videos/sim_aloha.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <h2 class="title is-4">Semi-Humanoid Setup</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop loop style="border-radius:10px; ">
+                <source src="videos/sim_rummy.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Here</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
