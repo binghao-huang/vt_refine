@@ -244,25 +244,23 @@
           </div>
         </div>
       </div>
-
-    </div>
-    <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <h2 class="title is-3">Penetration-based Tactile Model</h2>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="column">
-        <div class="columns is-centered">
-          <picture class="image">
-            <img alt="" src="images/sensor.png" width="100%" style="border-radius:10px; ">
-          </picture>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="teaser_video" width=99% muted autoplay controls loop style="border-radius:10px; ">
+                <source src="videos/tactile_simulation.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-    </div>
+    </div>  
   </section>
 
 </br>
@@ -698,21 +696,51 @@
 </br>
 </br>
 
-  <section class="Rollout">
-    <div class="container">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Policy Rollout in Real</h2>
+<section class="Rollout">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Policy Rollout in Real</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <video width="99%" muted autoplay controls loop style="border-radius:10px;">
+              <source src="videos/30 demo web.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
       </div>
     </div>
-    <div class="container">
+  </div>
+
+  <!-- Toggle button -->
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <button class="button is-primary" onclick="toggleRolloutVideos()" id="toggleButtonRollout">
+          More Policy Rollout
+        </button>
+      </div>
+    </div>
+
+    <!-- Hidden content -->
+    <div id="moreVideosRollout" style="display: none;">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">More Policy Rollout</h2>
+        </div>
+      </div>
 
       <div class="columns is-centered has-text-centered">
         <div class="column">
           <div class="columns is-centered">
             <div class="column content">
-              <video id="teaser_video" width=99% muted autoplay controls loop loop style="border-radius:10px; ">
+              <video width="99%" muted autoplay controls loop style="border-radius:10px;">
                 <source src="videos/00446 15s.mp4" type="video/mp4" />
               </video>
             </div>
@@ -720,12 +748,29 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  function toggleRolloutVideos() {
+    const moreVideos = document.getElementById("moreVideosRollout");
+    const toggleButton = document.getElementById("toggleButtonRollout");
+
+    if (moreVideos.style.display === "none" || moreVideos.style.display === "") {
+      moreVideos.style.display = "block";
+      toggleButton.innerText = "Hide Policy Rollout";
+    } else {
+      moreVideos.style.display = "none";
+      toggleButton.innerText = "More Policy Rollout";
+    }
+  }
+</script>
+
 
 </br>
 </br>
 
-  <section class="Rollout">
+  <section class="Sim_Rollout">
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
